@@ -2,15 +2,14 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class FlexibleShaderFixer : EditorWindow
+public class ShaderTweaker : EditorWindow
 {
     private static List<Material> targetMaterials = new List<Material>();
     private Shader selectedShader;
     private Vector2 scrollPos;
-    private static bool fixOnlyBroken = true;
 
-    [MenuItem("Assets/Repair Material Shader...", true)]
-    private static bool ValidateFixShader()
+    [MenuItem("Assets/Tweak Shader on Materials...", true)]
+    private static bool ValidateTweakShader()
     {
         foreach (Object obj in Selection.objects)
         {
@@ -20,8 +19,8 @@ public class FlexibleShaderFixer : EditorWindow
         return false;
     }
 
-    [MenuItem("Assets/Repair Material Shader...")]
-    private static void OpenShaderFixerWindow()
+    [MenuItem("Assets/Tweak Shader on Materials...")]
+    private static void OpenShaderTweakerWindow()
     {
         targetMaterials.Clear();
 
@@ -29,20 +28,17 @@ public class FlexibleShaderFixer : EditorWindow
         {
             if (obj is Material mat)
             {
-                if (!fixOnlyBroken || mat.shader.name == "Hidden/InternalErrorShader")
-                {
-                    targetMaterials.Add(mat);
-                }
+                targetMaterials.Add(mat);
             }
         }
 
         if (targetMaterials.Count == 0)
         {
-            EditorUtility.DisplayDialog("No valid materials", "No applicable materials found in the selection.", "OK");
+            EditorUtility.DisplayDialog("No materials found", "Please select one or more materials.", "OK");
             return;
         }
 
-        FlexibleShaderFixer window = GetWindow<FlexibleShaderFixer>(true, "Shader Fixer");
+        ShaderTweaker window = GetWindow<ShaderTweaker>(true, "Shader Tweaker");
         window.minSize = new Vector2(400, 300);
         window.ShowUtility();
     }
@@ -53,10 +49,7 @@ public class FlexibleShaderFixer : EditorWindow
         selectedShader = EditorGUILayout.ObjectField("Replacement Shader", selectedShader, typeof(Shader), false) as Shader;
 
         EditorGUILayout.Space();
-        fixOnlyBroken = EditorGUILayout.ToggleLeft("Only apply to broken materials", fixOnlyBroken);
-
-        EditorGUILayout.Space();
-        GUILayout.Label("Materials to Fix:", EditorStyles.boldLabel);
+        GUILayout.Label("Materials to Update:", EditorStyles.boldLabel);
 
         scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Height(150));
         foreach (Material mat in targetMaterials)
@@ -74,19 +67,16 @@ public class FlexibleShaderFixer : EditorWindow
                 return;
             }
 
-            int fixedCount = 0;
+            int updatedCount = 0;
             foreach (Material mat in targetMaterials)
             {
-                if (!fixOnlyBroken || mat.shader.name == "Hidden/InternalErrorShader")
-                {
-                    mat.shader = selectedShader;
-                    EditorUtility.SetDirty(mat);
-                    fixedCount++;
-                }
+                mat.shader = selectedShader;
+                EditorUtility.SetDirty(mat);
+                updatedCount++;
             }
 
             AssetDatabase.SaveAssets();
-            Debug.Log($"Updated {fixedCount} material(s) to shader: {selectedShader.name}");
+            Debug.Log($"Updated {updatedCount} material(s) to shader: {selectedShader.name}");
             Close();
         }
     }
