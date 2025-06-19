@@ -85,7 +85,7 @@ You can install this tool using Unity's Package Manager by adding a **Git URL**:
 1. Open Unity
 2. Go to `Window > Package Manager`
 3. Click the `+` button (Top left) > `Add package from git URL...`
-4. Paste the following: `https://github.com/ExperiencesXP/unity-shader-tweak.git`
+4. Paste the following: `https://github.com/ExperiencesXP/unity-shader-tweak.git?path=/com.experiencesxp.shadertweak`
 
 #### Method 2: Manual `.unitypackage` (via Releases)
 

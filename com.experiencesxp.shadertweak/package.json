@@ -8,8 +8,5 @@
     "name": "ExperiencesXP",
     "url": "https://github.com/ExperiencesXP"
   },
-  "license": "MIT",
-  "files": [
-    "Editor"
-  ]
+  "license": "MIT"
 }
