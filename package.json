@@ -1,12 +1,15 @@
 {
   "name": "com.experiencesxp.shadertweak",
   "version": "1.0.0",
-  "displayName": "Context Shader Tweak",
-  "description": "Fix and replace broken shaders via Unity's right-click menu. Useful for VRChat and general material cleanup.",
+  "displayName": "Contextmenu Shader Tweak",
+  "description": "Fix and replace broken shaders via Unity's right-click menu. Useful for VRChat avatars and general material cleanup.",
   "unity": "2019.4",
   "author": {
     "name": "ExperiencesXP",
     "url": "https://github.com/ExperiencesXP"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "Editor"
+  ]
 }
