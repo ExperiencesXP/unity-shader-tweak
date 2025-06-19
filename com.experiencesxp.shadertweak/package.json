@@ -8,5 +8,8 @@
     "name": "ExperiencesXP",
     "url": "https://github.com/ExperiencesXP"
   },
-  "license": "MIT"
+  "changelogUrl": "https://github.com/ExperiencesXP/unity-shader-tweak/blob/main/CHANGELOG.md",
+  "documentationUrl": "https://github.com/ExperiencesXP/unity-shader-tweak/blob/main/README.md",
+  "license": "MIT",
+  "licensesUrl": "https://github.com/ExperiencesXP/unity-shader-tweak/blob/main/LICENSE.txt"
 }
