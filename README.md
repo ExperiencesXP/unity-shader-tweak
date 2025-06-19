@@ -175,7 +175,7 @@ Project Link: [https://github.com/ExperiencesXP/unity-shader-tweak](https://gith
 [issues-shield]: https://img.shields.io/github/issues/ExperiencesXP/unity-shader-tweak.svg?style=for-the-badge
 [issues-url]: https://github.com/ExperiencesXP/unity-shader-tweak/issues
 [license-shield]: https://img.shields.io/github/license/ExperiencesXP/unity-shader-tweak.svg?style=for-the-badge
-[license-url]: https://github.com/ExperiencesXP/unity-shader-tweak/blob/main/LICENSE
+[license-url]: https://github.com/ExperiencesXP/unity-shader-tweak/blob/main/LICENSE.txt
 [discord-shield]: https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white
 [discord-url]: https://discord.com/users/558762972684484622
 [product-screenshot]: images/screenshot.png
